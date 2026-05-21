@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PawVibesZ — Cats on Zoom for Corporate Culture</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,700;0,900;1,300;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FFF8F0;
+    --orange: #FF6B35;
+    --coral: #FF9B71;
+    --yellow: #FFD166;
+    --teal: #06D6A0;
+    --purple: #9B5DE5;
+    --pink: #F72585;
+    --navy: #0D1B2A;
+    --warm-gray: #4A3728;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    color: var(--navy);
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: var(--navy);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 0 6vw;
+    gap: 4rem;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 60% at 70% 50%, rgba(255, 107, 53, 0.18) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 20% 80%, rgba(155, 93, 229, 0.15) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 50% at 50% 0%, rgba(6, 214, 160, 0.1) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .hero-blobs {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.3;
+    animation: floatBlob 8s ease-in-out infinite;
+  }
+
+  .blob-1 { width: 400px; height: 400px; background: var(--orange); top: -100px; right: 10%; animation-delay: 0s; }
+  .blob-2 { width: 300px; height: 300px; background: var(--purple); bottom: -50px; left: 5%; animation-delay: 3s; }
+  .blob-3 { width: 250px; height: 250px; background: var(--teal); top: 40%; right: 30%; animation-delay: 6s; }
+
+  @keyframes floatBlob {
+    0%, 100% { transform: translateY(0px) scale(1); }
+    50% { transform: translateY(-30px) scale(1.05); }
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 107, 53, 0.15);
+    border: 1px solid rgba(255, 107, 53, 0.4);
+    color: var(--coral);
+    padding: 6px 16px;
+    border-radius: 100px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  h1.hero-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(3.2rem, 6vw, 5.5rem);
+    font-weight: 900;
+    line-height: 1;
+    color: #fff;
+    animation: fadeUp 0.6s ease 0.1s both;
+  }
+
+  h1.hero-title .accent {
+    color: var(--yellow);
+    font-style: italic;
+    display: block;
+  }
+
+  .hero-sub {
+    font-size: 1.15rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.7);
+    margin-top: 1.5rem;
+    line-height: 1.7;
+    max-width: 480px;
+    animation: fadeUp 0.6s ease 0.2s both;
+  }
+
+  .hero-cta-row {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+    flex-wrap: wrap;
+    animation: fadeUp 0.6s ease 0.3s both;
+  }
+
+  .btn-primary {
+    background: var(--orange);
+    color: #fff;
+    text-decoration: none;
+    padding: 16px 36px;
+    border-radius: 100px;
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 0 40px rgba(255, 107, 53, 0.4);
+  }
+
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 0 60px rgba(255, 107, 53, 0.6); }
+
+  .hero-stats {
+    display: flex;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .stat-num {
+    font-family: 'Fraunces', serif;
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--yellow);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 4px;
+  }
+
+  .hero-visual {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    animation: fadeUp 0.6s ease 0.4s both;
+  }
+
+  .zoom-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+    padding: 1.4rem 1.8rem;
+    backdrop-filter: blur(20px);
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    transition: transform 0.3s;
+  }
+
+  .zoom-card:hover { transform: translateX(10px); }
+
+  .zoom-card-icon {
+    font-size: 2.2rem;
+    width: 56px;
+    height: 56px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .zoom-card-text { color: #fff; }
+  .zoom-card-title { font-family: 'Fraunces', serif; font-weight: 700; font-size: 1rem; }
+  .zoom-card-desc { font-size: 0.85rem; color: rgba(255,255,255,0.55); margin-top: 3px; }
+
+  .zoom-card.card-teal { border-color: rgba(6, 214, 160, 0.3); }
+  .zoom-card.card-yellow { border-color: rgba(255, 209, 102, 0.3); }
+  .zoom-card.card-purple { border-color: rgba(155, 93, 229, 0.3); }
+  .zoom-card.card-pink { border-color: rgba(247, 37, 133, 0.3); }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* WAVY DIVIDER */
+  .wavy {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    margin-top: -2px;
+  }
+
+  /* INTRO STRIP */
+  .intro-strip {
+    background: var(--yellow);
+    padding: 2rem 6vw;
+    overflow: hidden;
+  }
+
+  .marquee-track {
+    display: flex;
+    gap: 3rem;
+    white-space: nowrap;
+    animation: marquee 20s linear infinite;
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--navy);
+  }
+
+  .marquee-item { display: flex; align-items: center; gap: 1rem; flex-shrink: 0; }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* SECTION COMMONS */
+  section { padding: 7rem 6vw; }
+
+  .section-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--orange);
+    margin-bottom: 1rem;
+  }
+
+  h2.section-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2.5rem, 4vw, 3.8rem);
+    font-weight: 900;
+    line-height: 1.05;
+    color: var(--navy);
+    max-width: 700px;
+  }
+
+  .em { font-style: italic; color: var(--orange); }
+
+  /* PROBLEM SECTION */
+  .problem {
+    background: #fff;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .problem-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .prob-card {
+    background: var(--cream);
+    border-radius: 18px;
+    padding: 1.5rem;
+    border-left: 4px solid transparent;
+  }
+
+  .prob-card.c1 { border-color: var(--orange); }
+  .prob-card.c2 { border-color: var(--purple); }
+  .prob-card.c3 { border-color: var(--teal); }
+  .prob-card.c4 { border-color: var(--pink); }
+
+  .prob-emoji { font-size: 2rem; margin-bottom: 0.8rem; }
+  .prob-title { font-family: 'Fraunces', serif; font-weight: 700; font-size: 1rem; color: var(--navy); }
+  .prob-desc { font-size: 0.83rem; color: var(--warm-gray); margin-top: 0.4rem; line-height: 1.5; }
+
+  .problem-text p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #5a4a3a;
+    margin-top: 1.5rem;
+    max-width: 500px;
+  }
+
+  /* BENEFITS */
+  .benefits {
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .benefits::before {
+    content: '🐱';
+    font-size: 30rem;
+    position: absolute;
+    right: -2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.03;
+    pointer-events: none;
+    line-height: 1;
+  }
+
+  .benefits .section-title { color: #fff; }
+  .benefits .section-tag { color: var(--teal); }
+
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 4rem;
+  }
+
+  .benefit-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 24px;
+    padding: 2rem;
+    transition: transform 0.3s, border-color 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .benefit-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    border-radius: 24px 24px 0 0;
+  }
+
+  .benefit-card.bc1::before { background: var(--orange); }
+  .benefit-card.bc2::before { background: var(--teal); }
+  .benefit-card.bc3::before { background: var(--yellow); }
+  .benefit-card.bc4::before { background: var(--purple); }
+  .benefit-card.bc5::before { background: var(--pink); }
+  .benefit-card.bc6::before { background: var(--coral); }
+
+  .benefit-card:hover { transform: translateY(-8px); border-color: rgba(255,255,255,0.18); }
+
+  .benefit-num {
+    font-family: 'Fraunces', serif;
+    font-size: 3rem;
+    font-weight: 900;
+    opacity: 0.15;
+    color: #fff;
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+
+  .benefit-icon { font-size: 2rem; margin-bottom: 1rem; }
+
+  .benefit-title {
+    font-family: 'Fraunces', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.7rem;
+  }
+
+  .benefit-body {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.6);
+  }
+
+  /* SCIENCE SECTION */
+  .science {
+    background: var(--cream);
+  }
+
+  .science-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .science-facts {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .fact-item {
+    display: flex;
+    gap: 1.2rem;
+    align-items: flex-start;
+  }
+
+  .fact-dot {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .fact-dot.d1 { background: rgba(255, 107, 53, 0.15); }
+  .fact-dot.d2 { background: rgba(6, 214, 160, 0.15); }
+  .fact-dot.d3 { background: rgba(155, 93, 229, 0.15); }
+  .fact-dot.d4 { background: rgba(255, 209, 102, 0.2); }
+
+  .fact-text strong {
+    font-family: 'Fraunces', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    display: block;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+
+  .fact-text p {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: var(--warm-gray);
+  }
+
+  .big-quote {
+    background: var(--navy);
+    border-radius: 32px;
+    padding: 3rem;
+    color: #fff;
+    position: sticky;
+    top: 6rem;
+  }
+
+  .quote-mark {
+    font-family: 'Fraunces', serif;
+    font-size: 6rem;
+    color: var(--orange);
+    line-height: 0.6;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  .quote-text {
+    font-family: 'Fraunces', serif;
+    font-size: 1.6rem;
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.5;
+    color: rgba(255,255,255,0.9);
+  }
+
+  .quote-source {
+    margin-top: 2rem;
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.45);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .quote-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .q-stat {
+    background: rgba(255,255,255,0.06);
+    border-radius: 16px;
+    padding: 1.2rem;
+  }
+
+  .q-stat-num {
+    font-family: 'Fraunces', serif;
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--yellow);
+  }
+
+  .q-stat-label {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.5);
+    margin-top: 2px;
+  }
+
+  /* HOW IT WORKS */
+  .how {
+    background: #fff;
+  }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 4rem;
+  }
+
+  .step {
+    position: relative;
+    text-align: center;
+  }
+
+  .step::after {
+    content: '→';
+    position: absolute;
+    right: -1.5rem;
+    top: 2.8rem;
+    font-size: 1.5rem;
+    color: var(--coral);
+    opacity: 0.5;
+  }
+
+  .step:last-child::after { display: none; }
+
+  .step-circle {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    margin: 0 auto 1.2rem;
+    border: 3px solid transparent;
+  }
+
+  .step-circle.s1 { background: rgba(255, 107, 53, 0.1); border-color: var(--orange); }
+  .step-circle.s2 { background: rgba(6, 214, 160, 0.1); border-color: var(--teal); }
+  .step-circle.s3 { background: rgba(155, 93, 229, 0.1); border-color: var(--purple); }
+  .step-circle.s4 { background: rgba(255, 209, 102, 0.15); border-color: var(--yellow); }
+
+  .step-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+  }
+
+  .step-desc { font-size: 0.85rem; color: var(--warm-gray); line-height: 1.6; }
+
+  /* TESTIMONIALS */
+  .testimonials {
+    background: var(--cream);
+  }
+
+  .testi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3.5rem;
+  }
+
+  .testi-card {
+    background: #fff;
+    border-radius: 24px;
+    padding: 2rem;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.06);
+    transition: transform 0.3s;
+  }
+
+  .testi-card:hover { transform: translateY(-5px); }
+
+  .testi-stars { color: var(--yellow); font-size: 1rem; margin-bottom: 1rem; }
+
+  .testi-quote {
+    font-family: 'Fraunces', serif;
+    font-size: 1rem;
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--navy);
+    margin-bottom: 1.5rem;
+  }
+
+  .testi-author {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .testi-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+
+  .testi-name { font-weight: 500; font-size: 0.88rem; color: var(--navy); }
+  .testi-role { font-size: 0.78rem; color: #999; }
+
+  /* CTA */
+  .cta-section {
+    background: var(--orange);
+    text-align: center;
+    padding: 8rem 6vw;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5 Q35 15 30 25 Q25 15 30 5Z M20 20 Q30 25 25 35 Q15 30 20 20Z M40 20 Q50 25 45 35 Q35 30 40 20Z' fill='white' opacity='0.04'/%3E%3C/svg%3E") repeat;
+    pointer-events: none;
+  }
+
+  .cta-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(3rem, 5vw, 5rem);
+    font-weight: 900;
+    color: #fff;
+    line-height: 1;
+    position: relative;
+  }
+
+  .cta-sub {
+    font-size: 1.15rem;
+    color: rgba(255,255,255,0.8);
+    margin-top: 1.5rem;
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+    position: relative;
+  }
+
+  .btn-white {
+    background: #fff;
+    color: var(--orange);
+    text-decoration: none;
+    padding: 18px 44px;
+    border-radius: 100px;
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 2.5rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.2);
+    position: relative;
+  }
+
+  .btn-white:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 16px 60px rgba(0,0,0,0.3); }
+
+  .cta-note {
+    color: rgba(255,255,255,0.6);
+    font-size: 0.85rem;
+    margin-top: 1rem;
+    position: relative;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 3rem 6vw;
+    font-size: 0.85rem;
+  }
+
+  footer a { color: var(--coral); text-decoration: none; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; padding-top: 6rem; padding-bottom: 4rem; }
+    .hero-visual { display: none; }
+    .problem { grid-template-columns: 1fr; gap: 3rem; }
+    .benefits-grid { grid-template-columns: 1fr 1fr; }
+    .science-inner { grid-template-columns: 1fr; }
+    .big-quote { position: static; }
+    .steps { grid-template-columns: 1fr 1fr; }
+    .step::after { display: none; }
+    .testi-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 600px) {
+    .benefits-grid { grid-template-columns: 1fr; }
+    .steps { grid-template-columns: 1fr; }
+    .problem-cards { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-blobs">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-badge">🐾 Corporate Wellness Reimagined</div>
+    <h1 class="hero-title">
+      Happier Teams
+      <span class="accent">Start with a Purr</span>
+    </h1>
+    <p class="hero-sub">
+      PawVibesZ brings real cats from around the world directly into your team's Zoom — a science-backed micro-break that reduces stress, sparks connection, and transforms corporate culture.
+    </p>
+    <div class="hero-cta-row">
+      <a href="https://paniaguai.github.io/pawz/" target="_blank" class="btn-primary">
+        🐱 Book a Session — €8
+      </a>
+    </div>
+    <div class="hero-stats" style="margin-top: 3rem;">
+      <div class="stat"><span class="stat-num">70+</span><span class="stat-label">Real Cats</span></div>
+      <div class="stat"><span class="stat-num">20+</span><span class="stat-label">Countries</span></div>
+      <div class="stat"><span class="stat-num">€8</span><span class="stat-label">Per Session</span></div>
+      <div class="stat"><span class="stat-num">100%</span><span class="stat-label">Unscripted</span></div>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="zoom-card card-teal">
+      <div class="zoom-card-icon">😌</div>
+      <div class="zoom-card-text">
+        <div class="zoom-card-title">Instant Stress Relief</div>
+        <div class="zoom-card-desc">Cortisol drops within minutes of watching a cat purr</div>
+      </div>
+    </div>
+    <div class="zoom-card card-yellow">
+      <div class="zoom-card-icon">🤝</div>
+      <div class="zoom-card-text">
+        <div class="zoom-card-title">Team Bonding</div>
+        <div class="zoom-card-desc">Shared joy creates authentic emotional connections</div>
+      </div>
+    </div>
+    <div class="zoom-card card-purple">
+      <div class="zoom-card-icon">🌍</div>
+      <div class="zoom-card-text">
+        <div class="zoom-card-title">Global & Inclusive</div>
+        <div class="zoom-card-desc">Hosts from 20+ countries, perfect for distributed teams</div>
+      </div>
+    </div>
+    <div class="zoom-card card-pink">
+      <div class="zoom-card-icon">⚡</div>
+      <div class="zoom-card-text">
+        <div class="zoom-card-title">One Click to Calm</div>
+        <div class="zoom-card-desc">Zero setup — just join Zoom and let the magic happen</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE STRIP -->
+<div class="intro-strip">
+  <div class="marquee-track">
+    <span class="marquee-item">🐱 Reduce Burnout</span>
+    <span class="marquee-item">🧘 Mindful Presence</span>
+    <span class="marquee-item">💙 Build Empathy</span>
+    <span class="marquee-item">😸 Real & Unscripted</span>
+    <span class="marquee-item">🌍 Global Cats</span>
+    <span class="marquee-item">✨ Boost Morale</span>
+    <span class="marquee-item">🐾 Team Wellness</span>
+    <span class="marquee-item">💡 Creative Reset</span>
+    <span class="marquee-item">🐱 Reduce Burnout</span>
+    <span class="marquee-item">🧘 Mindful Presence</span>
+    <span class="marquee-item">💙 Build Empathy</span>
+    <span class="marquee-item">😸 Real & Unscripted</span>
+    <span class="marquee-item">🌍 Global Cats</span>
+    <span class="marquee-item">✨ Boost Morale</span>
+    <span class="marquee-item">🐾 Team Wellness</span>
+    <span class="marquee-item">💡 Creative Reset</span>
+  </div>
+</div>
+
+<!-- THE PROBLEM -->
+<section class="problem">
+  <div class="problem-text">
+    <span class="section-tag">The Challenge</span>
+    <h2 class="section-title">Modern Work is <em class="em">Draining</em> Your Team</h2>
+    <p>Remote and hybrid work has brought flexibility — but also isolation, Zoom fatigue, and a slow erosion of the human connection that makes great companies thrive. Employees are burnt out, disengaged, and craving something <em>real</em>.</p>
+    <p>Traditional wellness programs feel like chores. Team-building events feel forced. What if the antidote was something gentle, universal, and genuinely joyful?</p>
+  </div>
+  <div class="problem-cards">
+    <div class="prob-card c1">
+      <div class="prob-emoji">😰</div>
+      <div class="prob-title">Burnout Crisis</div>
+      <div class="prob-desc">77% of workers report burnout at their current job, costing companies billions in lost productivity.</div>
+    </div>
+    <div class="prob-card c2">
+      <div class="prob-emoji">🪟</div>
+      <div class="prob-title">Zoom Fatigue</div>
+      <div class="prob-desc">Back-to-back video calls drain energy and reduce the quality of creative thinking.</div>
+    </div>
+    <div class="prob-card c3">
+      <div class="prob-emoji">🏝️</div>
+      <div class="prob-title">Team Isolation</div>
+      <div class="prob-desc">Remote teams lack spontaneous moments of human warmth that office environments provided naturally.</div>
+    </div>
+    <div class="prob-card c4">
+      <div class="prob-emoji">📉</div>
+      <div class="prob-title">Low Engagement</div>
+      <div class="prob-desc">Only 23% of employees worldwide feel engaged at work — a direct hit to culture and retention.</div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="benefits">
+  <span class="section-tag">Why It Works</span>
+  <h2 class="section-title" style="color:#fff;">6 Ways PawVibesZ <em style="color:var(--yellow); font-style:italic;">Transforms</em> Your Culture</h2>
+
+  <div class="benefits-grid">
+    <div class="benefit-card bc1">
+      <div class="benefit-num">01</div>
+      <div class="benefit-icon">🧠</div>
+      <div class="benefit-title">Stress & Anxiety Reduction</div>
+      <div class="benefit-body">Watching a cat — even through a screen — activates the parasympathetic nervous system, triggering real calm. The combination of gentle movement, purring sounds, and a cat's unconditional presence lowers cortisol and creates a genuine reset for stressed-out employees.</div>
+    </div>
+    <div class="benefit-card bc2">
+      <div class="benefit-icon">🤝</div>
+      <div class="benefit-num">02</div>
+      <div class="benefit-title">Authentic Team Connection</div>
+      <div class="benefit-body">Shared delight is one of the most powerful bonding mechanisms in human psychology. When colleagues laugh together at a cat doing something unexpected, genuine oxytocin is released — the same "trust hormone" that underpins strong teams. This isn't forced fun; it's real.</div>
+    </div>
+    <div class="benefit-card bc3">
+      <div class="benefit-icon">💡</div>
+      <div class="benefit-num">03</div>
+      <div class="benefit-title">Creativity & Focus Reset</div>
+      <div class="benefit-body">A few minutes of mindful, low-demand attention — watching a cat explore its environment — quiets the default mode network and allows the brain to re-engage with creative tasks. Teams return from a PawVibesZ session with sharper focus and fresh perspectives.</div>
+    </div>
+    <div class="benefit-card bc4">
+      <div class="benefit-icon">🌍</div>
+      <div class="benefit-num">04</div>
+      <div class="benefit-title">Cross-Cultural Bridge</div>
+      <div class="benefit-body">With cats from over 20 countries — Spain, Japan, South Africa, the Philippines, and beyond — every session opens a window into another culture. Remote and international teams find a universal language that transcends geography, language, and background.</div>
+    </div>
+    <div class="benefit-card bc5">
+      <div class="benefit-icon">💙</div>
+      <div class="benefit-num">05</div>
+      <div class="benefit-title">Empathy & Emotional Intelligence</div>
+      <div class="benefit-body">Caring about another being, even briefly, exercises empathy circuits in the brain. Regular moments of gentle compassion — like noticing when a cat is curious or sleepy — have been linked to more empathetic workplace communication and leadership.</div>
+    </div>
+    <div class="benefit-card bc6">
+      <div class="benefit-icon">🏆</div>
+      <div class="benefit-num">06</div>
+      <div class="benefit-title">Employer Brand & Retention</div>
+      <div class="benefit-body">Companies that invest in genuinely creative, human-centered wellness initiatives attract and retain top talent. PawVibesZ is a memorable, shareable signal that your culture values real well-being — not just another checkbox on a benefits form.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SCIENCE -->
+<section class="science">
+  <div class="science-inner">
+    <div>
+      <span class="section-tag">The Science</span>
+      <h2 class="section-title">Why Cats & <em class="em">Kindness</em> Are Good for Business</h2>
+
+      <div class="science-facts">
+        <div class="fact-item">
+          <div class="fact-dot d1">😸</div>
+          <div class="fact-text">
+            <strong>Purring Frequencies Heal</strong>
+            <p>Cat purrs vibrate at 25–50 Hz — a frequency range scientifically associated with muscle and bone healing, as well as stress reduction in humans. It's medicine you can hear.</p>
+          </div>
+        </div>
+        <div class="fact-item">
+          <div class="fact-dot d2">🩺</div>
+          <div class="fact-text">
+            <strong>Cardiovascular Benefits</strong>
+            <p>Research has found that cat owners have a significantly lower risk of heart disease. Even brief interactions with cats reduce blood pressure and heart rate, supporting overall health.</p>
+          </div>
+        </div>
+        <div class="fact-item">
+          <div class="fact-dot d3">🧘</div>
+          <div class="fact-text">
+            <strong>Mindfulness Without Effort</strong>
+            <p>Watching a cat naturally induces a state of mindful presence — focused, calm, non-judgmental attention. It requires zero training and works for employees at every stress level.</p>
+          </div>
+        </div>
+        <div class="fact-item">
+          <div class="fact-dot d4">📊</div>
+          <div class="fact-text">
+            <strong>Productivity Payoff</strong>
+            <p>Animal-assisted wellness programs have been shown to reduce absenteeism and increase employee satisfaction scores. The ROI of a happier, healthier team compounds over time.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="big-quote">
+        <span class="quote-mark">"</span>
+        <p class="quote-text">Cats are not just cute — they are a conduit for kindness, calm, and genuine human connection in a world that desperately needs all three.</p>
+        <div class="quote-source">— PawVibesZ, Cats on Zoom · The World's First Cat Wellness Platform</div>
+
+        <div class="quote-stats">
+          <div class="q-stat">
+            <div class="q-stat-num">70+</div>
+            <div class="q-stat-label">Cats worldwide</div>
+          </div>
+          <div class="q-stat">
+            <div class="q-stat-num">50+</div>
+            <div class="q-stat-label">Host specialists</div>
+          </div>
+          <div class="q-stat">
+            <div class="q-stat-num">20+</div>
+            <div class="q-stat-label">Countries</div>
+          </div>
+          <div class="q-stat">
+            <div class="q-stat-num">€8</div>
+            <div class="q-stat-label">Solo session</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how">
+  <span class="section-tag">How It Works</span>
+  <h2 class="section-title">Four Steps to a <em class="em">Calmer</em> Team</h2>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-circle s1">🐱</div>
+      <div class="step-title">Pick a Cat</div>
+      <div class="step-desc">Browse 70+ real cats across 20+ countries and choose the one your team wants to meet.</div>
+    </div>
+    <div class="step">
+      <div class="step-circle s2">💳</div>
+      <div class="step-title">Book & Pay</div>
+      <div class="step-desc">Just €8 for a solo session or €80 for a full group. Secure, one-click Stripe checkout.</div>
+    </div>
+    <div class="step">
+      <div class="step-circle s3">📅</div>
+      <div class="step-title">Schedule</div>
+      <div class="step-desc">Pick your preferred date and time in the simple booking form. No complex setup required.</div>
+    </div>
+    <div class="step">
+      <div class="step-circle s4">😌</div>
+      <div class="step-title">Breathe & Reset</div>
+      <div class="step-desc">Join on Zoom, let the purring work its magic, and return to work feeling genuinely refreshed.</div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <span class="section-tag">What People Say</span>
+  <h2 class="section-title">The Humans (and Teams) <em class="em">Love It</em></h2>
+
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-quote">"We started doing PawVibesZ sessions before our Monday planning meetings. The shift in team energy is palpable — people arrive calmer, more open, and actually smiling."</p>
+      <div class="testi-author">
+        <div class="testi-avatar" style="background: rgba(255, 107, 53, 0.1);">👩‍💼</div>
+        <div>
+          <div class="testi-name">Sarah M.</div>
+          <div class="testi-role">Head of People Ops, Tech Startup</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-quote">"Our distributed team across 8 countries found a shared language in watching a cat in Tokyo just... exist. It sounds simple but it built real warmth between people who'd never met in person."</p>
+      <div class="testi-author">
+        <div class="testi-avatar" style="background: rgba(6, 214, 160, 0.1);">👨‍💻</div>
+        <div>
+          <div class="testi-name">Tobias K.</div>
+          <div class="testi-role">Engineering Manager, Global Remote Team</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-quote">"As an HR director, I'm always skeptical of gimmicky wellness initiatives. But this one is different. It's genuine, it's affordable, and the feedback from employees has been overwhelmingly positive."</p>
+      <div class="testi-author">
+        <div class="testi-avatar" style="background: rgba(155, 93, 229, 0.1);">👩‍🦰</div>
+        <div>
+          <div class="testi-name">Amira T.</div>
+          <div class="testi-role">HR Director, Creative Agency</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2 class="cta-title">Ready to bring calm<br>to your team? 🐾</h2>
+  <p class="cta-sub">Book a PawVibesZ session today and give your team the gift of genuine connection, mindful presence, and a few minutes of purring bliss.</p>
+  <a href="https://paniaguai.github.io/pawz/" target="_blank" class="btn-white">
+    🐱 Book on PawVibesZ.com
+  </a>
+  <p class="cta-note">€8 solo · €80 group · 70+ cats · 20+ countries · Only on Zoom</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>🐾 PawVibesZ — The World's First Cats on Zoom Platform · <a href="https://paniaguai.github.io/pawz/" target="_blank">paniaguai.github.io/pawz</a></p>
+  <p style="margin-top: 0.5rem;">Calm and Kindness, delivered by whiskers.</p>
+</footer>
+
+</body>
+</html>
